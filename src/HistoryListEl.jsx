@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'lodash'
+import Directions from './Directions'
 
 function getStyle(isActive) {
   return isActive ? { backgroundColor: 'yellow' } : null
@@ -22,7 +23,7 @@ Item.propTypes = {
   location: PropTypes.shape({ pathname: PropTypes.string.isRequired }).isRequired,
 }
 
-function HistoryList({ items, refresh }) {
+function HistoryList({ items, refresh, step }) {
   return (
     <div>
       <table>
@@ -38,12 +39,14 @@ function HistoryList({ items, refresh }) {
         </tbody>
       </table>
       {refresh && <h3>User did a refresh!</h3>}
+      <Directions step={step} />
     </div>
   )
 }
 HistoryList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   refresh: PropTypes.bool.isRequired,
+  step: PropTypes.number.isRequired,
 }
 HistoryList.defaultProps = {
 }
