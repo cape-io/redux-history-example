@@ -12,6 +12,7 @@ function AppPage() {
         <HistoryInput />
       </div>
       <HistoryList />
+      <a href="https://github.com/cape-io/redux-history-example">github code</a>
     </div>
   )
 }

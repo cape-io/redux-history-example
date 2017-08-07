@@ -17,7 +17,8 @@ function getStep({ activeKey, firstKey, lastKey, key, refresh }) {
     if (activeKey !== lastKey && activeKey !== firstKey) return 5
     return 4
   }
-  return 2
+  if (activeKey === lastKey) return 2
+  return 1
 }
 
 const mapStateToProps = flow(
